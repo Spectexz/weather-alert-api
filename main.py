@@ -3,8 +3,6 @@ import uvicorn
 from fastapi import FastAPI
 import os
 from dotenv import load_dotenv
-import schedule
-from pytz import timezone
 
 
 load_dotenv()
