@@ -26,7 +26,7 @@ jobs:
             WEATHER_KEY_API: ${{ secrets.WEATHER_KEY_API }}
             TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
             TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python main.py
+        run: python job.py
 
       - name: Run Daily Alert
         run: |

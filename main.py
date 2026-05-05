@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import schedule
 from pytz import timezone
 
+
 load_dotenv()
 #WEATHER API
 api_key = os.environ.get("WEATHER_KEY_API")
@@ -38,7 +39,7 @@ def get_weather_data(city:str):
 
 @app.get("/weather")
 async def readitem(city:str):
-    get_weather_data()
+    get_weather_data(city)
 
 
 def send_alert(text:str):
@@ -50,10 +51,3 @@ def send_alert(text:str):
     }
     response = requests.post(tele_url, data=params_telegram)
     return response.json()
-
-def job():
-    data = get_weather_data(city='Jakarta')
-    text = f"Good Morning! \nCity:{data.get('Location')} \nTemperature: {data.get('Temperature')} \nCondition: {data.get('Condition')} \nHumidity: {data.get('Humidity')}"
-    send_alert(text)
-
-job()
